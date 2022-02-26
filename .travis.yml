@@ -1,11 +1,13 @@
 language: pyhton
 python:
   - "3.6"
+  - "3.7"
 
 services:
   - docker
 
-before_script: pip install docker-compose
+install:
+  - pip install docker-compose
 
 script:
   - docker-compose run app sh -c "python manage.py test && flake8"
